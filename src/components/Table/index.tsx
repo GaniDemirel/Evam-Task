@@ -109,6 +109,7 @@ export const Table = () => {
       </h1>
 
       <Input
+        className="mb-2"
         type="text"
         placeholder="Search..."
         value={search}
