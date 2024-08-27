@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { User } from "../../Types/types";
-import { data } from "../../components/Table";
+import { data } from "../../mockdata";
 
 interface EmployeesState {
   employees: User[];

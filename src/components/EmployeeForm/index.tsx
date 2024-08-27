@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
 import { addEmployee, updateEmployee } from "../../redux/EmployeesSlice";
-import UserSVG from "../../assets/user.svg";
+import UserMaleSVG from "../../assets/userMale.svg";
+import UserFemaleSVG from "../../assets/userFemale.svg";
 import { showNotification } from "../../redux/NotificationSlice";
 import Skeleton from "react-loading-skeleton";
 
@@ -172,7 +173,10 @@ export const EmployeeForm = ({ employee }: EmployeeFormProps) => {
       {hasData && (
         <div className="w-full max-w-[500px] bg-white p-8 border border-gray rounded-lg md:h-[318px]">
           <div className="flex flex-col md:flex-row items-center md:items-start pb-10 md:pb-0 gap-4">
-            <img className="w-[168px] h-[168px]" src={UserSVG} />
+            <img
+              className="w-[168px] h-[168px]"
+              src={formData.gender === "Female" ? UserFemaleSVG : UserMaleSVG}
+            />
             <div className="pt-10 flex flex-col gap-4 w-full">
               <p className="flex items-center">
                 <span className="font-semibold max-w-[110px] w-full">

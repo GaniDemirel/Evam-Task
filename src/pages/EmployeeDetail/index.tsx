@@ -2,12 +2,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { removeEmployee, selectEmployeeById } from "../../redux/EmployeesSlice";
-import UserSVG from "../../assets/user.svg";
+import UserMaleSVG from "../../assets/userMale.svg";
+import UserFemaleSVG from "../../assets/userFemale.svg";
 import { useEffect, useState } from "react";
 import { showNotification } from "../../redux/NotificationSlice";
-import { data } from "../../components/Table";
 import DeleteSVG from "../../assets/deleteIcon.svg";
 import UpdateSVG from "../../assets/updateIcon.svg";
+import { data } from "../../mockdata";
 
 export const EmployeeDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -38,7 +39,7 @@ export const EmployeeDetail = () => {
   const handleRemove = () => {
     // Mock data delete request wont work!
     if (data.find((x) => x.id === employee!.id)) {
-      dispatch(showNotification("Employee can not deleted!"));
+      dispatch(showNotification("MOCK DATA! Employee can not deleted!"));
       return;
     }
     dispatch(removeEmployee(employee!.id));
@@ -48,7 +49,7 @@ export const EmployeeDetail = () => {
   const handleUpdate = () => {
     // Mock data update wont work!
     if (data.find((x) => x.id === employee!.id)) {
-      dispatch(showNotification("Employee can not updated!"));
+      dispatch(showNotification("MOCK DATA! Employee can not updated!"));
       return;
     }
     navigate(`/updatePerson/${employee!.id}`);
@@ -59,10 +60,10 @@ export const EmployeeDetail = () => {
       <div className="flex flex-col md:flex-row items-center gap-8 w-full ">
         {employee && (
           <>
-            <div className="img-container w-[200px] h-[200px] rounded-full border border-gray">
+            <div className="img-container">
               <img
-                className="img"
-                src={UserSVG}
+                className="img w-[200px] h-[200px] rounded-full border border-gray"
+                src={employee.gender === "Male" ? UserMaleSVG : UserFemaleSVG}
                 alt="Rotating"
                 style={{ transform: `rotateY(${rotation}deg)` }}
               />
@@ -105,6 +106,20 @@ export const EmployeeDetail = () => {
                 <span className="font-semibold">Gender: </span>
                 {employee.gender}
               </p>
+              <div className="flex justify-between">
+                <button
+                  onClick={handleUpdate}
+                  className="bg-mainBlue text-white px-4 py-2 mb-6 float-end rounded-lg whitespace-nowrap hover:shadow-md hover:opacity-80"
+                >
+                  Update
+                </button>
+                <button
+                  onClick={handleRemove}
+                  className="bg-[#ff0000b3] text-white px-4 py-2 mb-6 float-end rounded-lg whitespace-nowrap hover:shadow-md hover:opacity-80"
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </>
         )}
