@@ -12,23 +12,23 @@ This template provides a minimal setup to get React working with Vite, including
 
 2. **Start the Development Server:**
 
-```bash
-yarn dev
-```
+   ```bash
+   yarn dev
+   ```
 
 3. **Build and Deploy:**
 
-Build the Project:
+   Build the Project:
 
-    ```bash
-    yarn build
-    ```
+   ```bash
+   yarn build
+   ```
 
-Deploy with Firebase:
+   Deploy with Firebase:
 
-    ```bash
-    firebase deploy
-    ```
+   ```bash
+   firebase deploy
+   ```
 
 ## Notes
 
