@@ -30,6 +30,10 @@ This template provides a minimal setup to get React working with Vite, including
    firebase deploy
    ```
 
+4. **Demo:**
+
+   You can view the live demo of the project at: [https://evam-dffdc.web.app/](https://evam-dffdc.web.app/)
+
 ## Notes
 
 - **Vite Plugins:**
