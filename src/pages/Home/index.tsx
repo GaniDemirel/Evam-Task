@@ -24,6 +24,13 @@ export const Home = () => {
     (state: RootState) => state.employees.employees
   );
 
+  useEffect(() => {
+    const localeListType = localStorage.getItem("currentListType");
+    if (localeListType === "Card" || localeListType === "Table") {
+      setListType(localeListType);
+    }
+  }, []);
+
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
@@ -41,13 +48,15 @@ export const Home = () => {
     (user) =>
       user.name.toLowerCase().includes(search.toLowerCase()) ||
       user.email.toLowerCase().includes(search.toLowerCase()) ||
-      user.role.toLowerCase().includes(search.toLowerCase())
+      user.role.toLowerCase().includes(search.toLowerCase()) ||
+      user.gender.toLowerCase().includes(search.toLowerCase())
   );
   const filteredEmployees = employees.filter(
     (user) =>
       user.name.toLowerCase().includes(search.toLowerCase()) ||
       user.email.toLowerCase().includes(search.toLowerCase()) ||
-      user.role.toLowerCase().includes(search.toLowerCase())
+      user.role.toLowerCase().includes(search.toLowerCase()) ||
+      user.gender.toLowerCase().includes(search.toLowerCase())
   );
 
   const allEmployees = [...filteredEmployees, ...filteredData];
@@ -140,7 +149,13 @@ export const Home = () => {
           </div>
         )}
         <img
-          onClick={() => setListType(listType === "Card" ? "Table" : "Card")}
+          onClick={() => {
+            localStorage.setItem(
+              "currentListType",
+              listType === "Card" ? "Table" : "Card"
+            );
+            setListType(listType === "Card" ? "Table" : "Card");
+          }}
           className="w-10 h-10 p-2 rounded-lg cursor-pointer hover:transform hover:scale-105 border border-gray"
           src={listType === "Card" ? ListIconSVG : GridIconSVG}
         />

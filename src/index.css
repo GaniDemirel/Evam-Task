@@ -80,7 +80,7 @@
   transform: skewY(-12deg);
   z-index: -10;
   height: 161px;
-  background: linear-gradient(248deg, #16b3e7 10.52%, #013390 76.09%);
+  background: linear-gradient(248deg, #fe9903 10.52%, #013390 76.09%);
 }
 
 .main-center-background-grey {
@@ -91,7 +91,7 @@
   height: 190px;
   opacity: 0.08;
   background: rgb(26, 101, 233);
-  background: linear-gradient(90deg, #013390 0%, #013390 50.13%, #16e7e5 100%);
+  background: linear-gradient(90deg, #013390 0%, #013390 50.13%, #fe9903 100%);
 }
 
 .main-center-background-transparent {
@@ -119,8 +119,8 @@
   transform: rotate(1.167deg);
   flex-shrink: 0;
   background: linear-gradient(270deg,
-      #16e7e5 14.1%,
-      rgba(22, 231, 229, 0.86) 42.71%,
+      #fe9903 14.1%,
+      rgba(211, 213, 78, 0.86) 42.71%,
       rgba(22, 231, 229, 0.53) 70.95%);
   filter: blur(35px);
   animation: animate-shape ease-in-out 4s infinite;
